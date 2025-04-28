@@ -1,0 +1,33 @@
+file = '/home/anders-eriksen/Documents/GitHub/data-projects/citroen-c4-project/bilbasen_scrape.csv'
+opts = detectImportOptions(file)
+cars = readtable(file,opts)
+
+km = table.Kilometers;
+price = table.Price_DKK_;
+
+figure(1)
+plot(km, price, '*')
+grid on
+
+year = string(table.Year)
+year = datetime(year, 'InputFormat', 'M/yyyy')
+
+plot(year, price, 'o')
+grid on
+
+% Create a table for easier fitting
+data = table(km(:), age(:), price(:), 'VariableNames', {'km', 'age', 'price'});
+
+% Define a custom exponential model
+ft = fittype('a * exp(b*km + c*age)', 'independent', {'km', 'age'}, 'dependent', 'price');
+
+% Fit the model
+opts = fitoptions(ft);
+opts.StartPoint = [1, -0.0001, -0.1]; % You may need to adjust these based on your data
+fittedmodel = fit([data.km, data.age], data.price, ft, opts);
+
+% Plot
+plot(fittedmodel, [data.km, data.age], data.price)
+xlabel('Kilometers driven')
+ylabel('Age')
+zlabel('Price')
