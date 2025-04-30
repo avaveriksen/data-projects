@@ -20,3 +20,8 @@ The scraper searches through the HTML, as can be seen by inspecting an element o
 
 ## Saving data in csv file
 The scraping ends up with me having a list of dictionaries, each one having the data of an advert. Bilbasen returned 62 cars on my initial query, why I have a list of length 62. I use **Pandas** to export the list to a CSV file, which I will use for data analysis later on.
+
+## Power BI
+I'm still very early in my Power BI adventures, but I loaded the csv file into Power BI to do some transformations, visualizations and reporting, and this is what came out:
+
+![Power BI Report](graphics/PBI_CitroenC4-1.png)
