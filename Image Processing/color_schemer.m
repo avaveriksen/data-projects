@@ -225,9 +225,9 @@ function pallette = create_pallette(R, G, B)
     V_boost = zeros(length(pallette),1, 3);
 
     for i = 1:length(V_boost)
-        ref = max(pallette(i, :));
-        sf = 255 / double(ref);
-        V_boost(i, 1, :) = uint8(double(pallette(i, 1, :)) * sf);
+        ref = max(pallette(i, :)); % get the highest R, G or B
+        sf = 255 / double(ref); % calculate scaling factor to boost that to 255
+        V_boost(i, 1, :) = uint8(double(pallette(i, 1, :)) * sf); % scale R, G and B with sf
     end
     
     % Adding boosted colors to pallette
