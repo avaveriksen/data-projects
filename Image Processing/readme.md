@@ -1,7 +1,8 @@
 # Color schemer
+
 In this project, I use MATLAB to analyse images by reading the RGB values of pixels, with the goal of creating a color pallette based on that image. During the proces, the source image is **resized** and **blurred**, the pixels are **seperated into color spaces** and **averaged**, and a set of curated colors are selected based on **spatial proximity** in a cartesian coordinate system.
 
-Four different images are processed. All files and outputs are available in repo.
+One image is processed in the following, but four different images and their outputs can be found in the repo.
 
 ## Loading and resizing
 The image is read with MATLABs `imread()` functions. A scaling factor is calculated to get the width of the picture to be close to 500 pixels. Array subscript indexing is used for the size reduction.
@@ -102,7 +103,7 @@ For the `colorful bird` image, there are a lot of different colors all over the 
 ### Large color pallette
 With all of the averaged RGB values, it is possible to create a large color pallette with all the averaged colors. The averaged color array is stored in a way to allow it to be treated as a RGB image.
 
-![Big pallette](colorful-bird-output/big_pallette.png)
+![Big pallette](readme-resources/big_pallette.png)
 
 ## Curated color pallette
 A smaller curated color pallette is computed. The strategy is to have a set of *anchor points* in the RGB space, which are spaced out widey from each other. Each corner of the color space, for example RGB = [0, 0, 0] and [255, 255, 255], has an anchor point, and the center of each side has an anchor point. For each anchor point, we will find the average RGB color from the scatter plot which is closest in proximity to that anchor point. That color is added to the curated color pallette.
@@ -171,7 +172,9 @@ pallette(:, 2, :) = V_boost;
 
 
 ### Curated pallette
-![](colorful-bird-output/pallette.png)
+The left column are the curated colors. They have a nice spread across the color spectrum thanks to the strategy of wide spread anchor colors. The right column are the boosted colors. It can be seen how boosted colors are similar to their original counterpart, but brighter and more vivid. The black color went to a light purple, because the RGB ratio was a purple tint so dark that it seemed black.
+
+![](readme-resources/pallette.png)
 
 
 
