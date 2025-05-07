@@ -2,9 +2,9 @@ clear;clc;close all;
 
 %% Load source image
 %source = imread("colorful-bird.jpg");
-%source = imread("mount-assiniboine-1.jpg");
+source = imread("mount-assiniboine-1.jpg");
 %source = imread("mount_assiniboine_2.jpg");
-source = imread("citroen-c4-grainy.jpg");
+%source = imread("citroen-c4-grainy.jpg");
 
 %% Display Source Image and export to directory
 figure(1)
