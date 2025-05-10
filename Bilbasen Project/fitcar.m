@@ -1,3 +1,4 @@
+
 function [fittedmodel, gof] = fitcar(table)
     km = table.("Kilometers");
     age = table.("Age");
